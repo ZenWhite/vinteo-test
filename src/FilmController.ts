@@ -1,10 +1,11 @@
-class FilmController {
-  openDetails() {
-    const popup = new Popup();
-    this.popupOpened = true;
-  }
+/*
+  Popup может быть стором с состоянием "открыто/закрыто", который переиспользуется и в других местах.
+  Поэтому лучше передать popup в качестве зависимости. Брать состояние, открывать / закрывать также необходимо через переданную зависимость.
+  Если FilmController является адаптером, то методы openDetails и isPopupOpened необходимо оставить, но в них надо работать с зависимостью popup.
+*/
 
-  isPopupOpened() {
-    return this.popupOpened;
-  }
+type Popup = any
+
+class FilmController {
+  constructor(private popup: Popup) {}
 }

@@ -1,14 +1,19 @@
+/*
+ Неоправданное использование let и forEach, которые заменяются на один reduce.
+ В applyDiscount лучше не вызывать calculateTotalPrice а передавать число.
+ Примером может послужить карточка товара, в которой отображается полная стоимость + его скидка.
+*/
+
+type Item = { price: number }
 
 // Модуль 1
-function calculateTotalPrice(items) {
-  let totalPrice = 0;
-  items.forEach((item) => {
-    totalPrice += item.price;
-  });
-  return totalPrice;
+const calculateTotalPrice = (items: Item[]) => {
+  return items.reduce((sum, item) => sum + item.price, 0)
 }
 
 // Модуль 2
-function applyDiscount(totalPrice, discountPercentage) {
-  return totalPrice * (1 - discountPercentage / 100);
+const applyDiscount = (totalPrice: number, discountPercentage: number) => {
+  return totalPrice * (1 - discountPercentage / 100)
 }
+
+export {}

@@ -1,3 +1,6 @@
-function calculate(a, b) {
-  return a + b;
-}
+/*
+  Неявное название функции, которое лучше изменить на sum.
+  Функцию можно расширить на общий случай суммирования неограниченного количества чисел.
+*/
+
+const sum = (...values: number[]) => values.reduce((total, num) => total + num, 0)

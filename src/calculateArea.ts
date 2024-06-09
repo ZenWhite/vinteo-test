@@ -1,21 +1,10 @@
-enum ShapeType {
-  Circle,
-  Square,
-}
+/*
+  Лучше разделить calculateArea на отдельные функции. 
+  После разделения можно убрать лишний enum ShapeType.
+  Math.pow можно заменить на ** 2.
+*/
 
-function calculateArea(shape: ShapeType, radiusOrSide: number): number {
-  let area = 0;
+const calculateSquareaArea = (side: number): number => side ** 2
+const calculateCircleArea = (radius: number): number => Math.PI * radius ** 2
 
-  switch (shape) {
-    case ShapeType.Circle:
-      area = Math.PI * Math.pow(radiusOrSide, 2);
-      break;
-    case ShapeType.Square:
-      area = Math.pow(radiusOrSide, 2);
-      break;
-  }
-
-  return area;
-}
-
-console.log(calculateArea(ShapeType.Circle, 5)); // Output: 78.54
+console.log(calculateCircleArea(5)) // Output: 78.54

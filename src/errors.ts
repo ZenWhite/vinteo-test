@@ -1,11 +1,16 @@
-const hasNotFoundStatus = (response: Response) => {
-  return response.status === HttpStatusCode.NOT_FOUND_404;
-};
+/*
+  Добавлен enum HttpStatusCode. 
+  Функции заменены на одну для обработки всех возможных статусов.
+  Деструктуризация параметра функции для улучшения чистоты кода.
+  Явно указан возвращаемый тип данных.
+*/
 
-const hasForbiddenStatus = (response: Response) => {
-  return response.status === HttpStatusCode.FORBIDDEN_403;
-};
+enum HttpStatusCode {
+  NOT_FOUND_404,
+  FORBIDDEN_403,
+  SERVER_ERROR_503,
+}
 
-const hasServiceUnavailableStatus = (response: Response) => {
-  return response.status === 503;
-};
+const hasStatus = ({ status }: Response, code: HttpStatusCode): boolean => {
+  return status === code
+}

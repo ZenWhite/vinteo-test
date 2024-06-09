@@ -1,3 +1,8 @@
-function calculateArea2(radius: number): number {
-  return 3.14 * radius * radius; // "волшебное число" 3.14
+/*
+  Волшебное число необходимо заменить на Math.PI.
+  Умножение radius лучше заменить на возведение в степень.
+*/
+
+const calculateArea2 = (radius: number): number => {
+  return Math.PI * radius ** 2
 }

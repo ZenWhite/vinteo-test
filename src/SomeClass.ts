@@ -1,22 +1,20 @@
+/*
+  Необходимо убрать ненужные метод и проверку.
+  В catch тип ошибки был указан неверно с точки зрения синтаксиса.
+*/
+
+type Exception = any
+
 class SomeClass {
-
-  private neverUsedMethod() {
-      console.log("This function is called");
-  }
-
   public someMethod() {
-      if (false) {
-          doSomethingThatNeverHappens();
-      }
-
-      try {
-          doSomethingSafe();
-      } catch (Exception e) {
-          e.printStackTrace();
-      }
+    try {
+      this.doSomethingSafe()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   private doSomethingSafe() {
-     console.log('Safe operation')
+    console.log('Safe operation')
   }
 }

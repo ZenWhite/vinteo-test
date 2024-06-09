@@ -1,15 +1,21 @@
+/*
+  Необходимо передавать нужные данные и зависимости в Order и Customer через конструктор, чего не было в изначальном коде.
+*/
+
 class Order {
-  private customer: Customer;
+  constructor(private customer: Customer) {}
 
   getTotalPrice(): number {
     return this.customer.calculateTotalPrice();
   }
 }
 
+type Item = any;
+
 class Customer {
-  private items: Item[];
+  constructor(private items: Item[]) {}
 
   calculateTotalPrice(): number {
-    // вычисление общей цены на основе items
+    return 0;
   }
 }

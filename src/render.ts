@@ -1,14 +1,6 @@
-const render = (size: number) => {
-  const html = new StringBuffer('<hr');
+/*
+  В текущей реализации работа с классом StringBuffer была лишней. 
+  Реализацию логики функции можно уместить в одну шаблонную строку. 
+*/
 
-  if (size > 0) {
-    html
-      .append(' size="')
-      .append(size + 1)
-      .append('"');
-  }
-
-  html.append('>');
-
-  return html.toString();
-};
+const render = (size: number) => `<hr ${size > 0 ? `size="${size + 1}"` : ''} />`
